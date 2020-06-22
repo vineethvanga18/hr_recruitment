@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Application</title>
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<button>
+    <a href="{% url 'apply' %}">Apply</a>
+</button>
+</br>
+<button>
+    <a href="{% url 'new_application' %}">New Application</a>
+</button>
+<h1>Applications available</h1>
+<table style="width: 100%">
+<tr>
+    <th>id</th>
+    <th>Objective</th>
+    <th>skills required</th>
+</tr>
+{% for app in all_apps %}
+    <tr>
+    <td>{{ app.id }}</td>
+    <td>{{ app.Objective }}</td>
+    <td>{{ app.skills_required }}</td>
+    </tr>
+{% endfor %}
+</table>
+</body>
+</html>
