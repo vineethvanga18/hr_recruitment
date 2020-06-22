@@ -12,6 +12,7 @@ class ApplicantForm(forms.ModelForm):
         app = self.cleaned_data.get('Applying_for')
         if skills != app.skills_required:
             raise forms.ValidationError('You dont have the required skills')
+        return skills
 
 
 class ApplicationForm(forms.ModelForm):
